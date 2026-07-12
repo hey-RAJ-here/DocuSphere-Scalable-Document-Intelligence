@@ -174,7 +174,6 @@ This launches Qdrant and the packaged API service.
 - Restrict uploaded document handling to trusted sources and controlled environments.
 
 ## Engineering Highlights
-
 - Multi-provider runtime routing for both embeddings and generation.
 - Local fallback mode for degraded infrastructure conditions.
 - Deterministic ingestion IDs for idempotency.
