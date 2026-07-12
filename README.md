@@ -180,10 +180,4 @@ This launches Qdrant and the packaged API service.
 - Deterministic ingestion IDs for idempotency.
 - Source-aware answers to improve auditability and trust.
 
-## License
 
-Add your preferred license file (MIT, Apache-2.0, etc.) at repository root.
-
----
-
-Built for real-world RAG operations by Adil Shamim.
