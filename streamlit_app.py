@@ -88,8 +88,8 @@ def _llm_models_for(provider: str) -> list[str]:
 def _embed_models_for(provider: str) -> list[str]:
     if provider == "openai":
         return ["text-embedding-3-small", "text-embedding-3-large"]
-    if provider == "gemini":
-        return ["models/text-embedding-004"]
+    elif provider == "gemini":
+        return ["models/embedding-001", "models/text-embedding-004"]
     if provider == "ollama":
         models = _fetch_ollama_models()
         if "nomic-embed-text" not in models:
