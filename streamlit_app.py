@@ -1,14 +1,6 @@
 import asyncio
 import json
 import os
-import sys
-import subprocess
-
-try:
-    import google.generativeai
-except ImportError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "google-generativeai>=0.8.5"])
-
 from pathlib import Path
 import time
 import uuid
