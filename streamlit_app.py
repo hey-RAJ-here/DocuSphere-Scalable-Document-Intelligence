@@ -77,7 +77,7 @@ def _llm_models_for(provider: str) -> list[str]:
     if provider == "openai":
         return ["gpt-4o-mini", "gpt-4.1-mini", "gpt-4.1", "o3-mini"]
     if provider == "gemini":
-        return ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-2.5-flash"]
+        return ["gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite"]
     if provider == "claude":
         return ["claude-3-5-haiku-latest", "claude-3-5-sonnet-latest", "claude-3-7-sonnet-latest"]
     if provider == "ollama":
