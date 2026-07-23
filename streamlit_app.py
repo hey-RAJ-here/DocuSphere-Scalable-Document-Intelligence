@@ -146,7 +146,7 @@ def _render_model_settings() -> None:
         key="settings_embed_model",
     )
 
-    embed_dim = 768 if embed_provider in {"gemini", "ollama", "local"} else 3072
+    embed_dim = 768 if embed_provider in {"ollama", "local"} else 3072
     st.sidebar.caption(f"Embedding dimension: {embed_dim} (auto)")
 
     st.sidebar.markdown("API Key Source")
