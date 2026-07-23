@@ -537,7 +537,6 @@ if uploaded is not None:
             except Exception as local_exc:
                 st.error(f"Local ingestion failed: {local_exc}")
                 st.info(_local_fallback_help())
-            st.stop()
         try:
             asyncio.run(send_rag_ingest_event(path))
             time.sleep(0.3)
