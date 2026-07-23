@@ -533,26 +533,26 @@ if uploaded is not None:
             try:
                 ingested = _run_ingest_locally(path)
                 st.success(f"Ingested locally: {ingested} chunks from {path.name}")
-                st.caption("Inngest is disabled by config.")
             except Exception as local_exc:
                 st.error(f"Local ingestion failed: {local_exc}")
                 st.info(_local_fallback_help())
-        try:
-            asyncio.run(send_rag_ingest_event(path))
-            time.sleep(0.3)
-            st.success(f"Triggered ingestion for: {path.name}")
-            st.caption("You can upload another PDF if you like.")
-        except Exception as exc:
-            if _is_send_events_error(exc):
-                st.warning(_send_error_message(exc))
-                try:
-                    ingested = _run_ingest_locally(path)
-                    st.success(f"Inngest unavailable. Ingested locally: {ingested} chunks from {path.name}")
-                except Exception as local_exc:
-                    st.error(f"Local ingestion failed: {local_exc}")
-                    st.info(_local_fallback_help())
-            else:
-                st.error(f"Unexpected ingestion error: {exc}")
+        else:
+            try:
+                asyncio.run(send_rag_ingest_event(path))
+                time.sleep(0.3)
+                st.success(f"Triggered ingestion for: {path.name}")
+                st.caption("You can upload another PDF if you like.")
+            except Exception as exc:
+                if _is_send_events_error(exc):
+                    st.warning(_send_error_message(exc))
+                    try:
+                        ingested = _run_ingest_locally(path)
+                        st.success(f"Inngest unavailable. Ingested locally: {ingested} chunks from {path.name}")
+                    except Exception as local_exc:
+                        st.error(f"Local ingestion failed: {local_exc}")
+                        st.info(_local_fallback_help())
+                else:
+                    st.error(f"Unexpected ingestion error: {exc}")
 
 st.divider()
 st.title("Ask a question about your PDFs")
