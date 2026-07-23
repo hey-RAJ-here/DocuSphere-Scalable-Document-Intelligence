@@ -26,7 +26,7 @@ def _ollama_headers() -> dict[str, str]:
 
 def _default_embed_dim(provider: str) -> int:
     if provider == "gemini":
-        return 768
+        return 3072
     if provider == "ollama":
         return 768
     if provider == "local":
